@@ -50,8 +50,7 @@ var clearValues = function(){
 }
 
 
-$(document).ready(function() {
-
+$(document).ready(function(event) {
     $("button#start").click(function(event){
         Player1 = new Player(true);
         Player2 = new Player(false);
@@ -68,7 +67,7 @@ $(document).ready(function() {
         Player2.playerName=player2Name;
 
     });
-    $("button#dice").click(function (event) {
+    $("button#dice").click(function(event) {
         $(".console").hide();
         clearValues();
         Player1.newGame();
@@ -82,8 +81,9 @@ $(document).ready(function() {
 
         $(".start-menu").show();
     });
-    $("button#dice1").click(function (event) {
-        dice1 = throwdice();
+
+    $("button#dice").click(function (event) {
+        Player2.roll = throwdice();
         $("#die-roll-1").text(Player1.roll);
         Player1.rollone();
         $("#round-total-1").text(Player1.tempscore);
@@ -109,8 +109,7 @@ $(document).ready(function() {
         $("#total-score-2").text(Player1.totalscore);
         $("#round-total-2").empty();
         $("#die-roll-2").empty();
-        Player1.winnerCheck();
+        Player2.winnerCheck();
     });
-
-    event.preventDefault;
+       
 });

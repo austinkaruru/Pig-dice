@@ -13,7 +13,27 @@ body {
     background-color: red;
     color: black
 }
-.dice {
+#dice {
+    color: white;
+    background-color: black
+}
+#dice2 {
+    color: white;
+    background-color: black
+}
+#dice3 {
+    color: white;
+    background-color: black
+}
+#dice4 {
+    color: white;
+    background-color: black
+}
+#start {
+    color: white;
+    background-color: black
+}
+.dice2 {
     color: white;
     background-color: black
 }
