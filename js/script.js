@@ -10,13 +10,13 @@ function Player(turn) {
     this.tempscore = 0;
     this.roundscore = 0;
     this.turn = turn;
-    this.playerName
+    this.playerName;
 }
 
 Player.prototype.rollone = function() {
     if (this.roll === 1 ) {
-        this.tempscore = 0;
-        alert("Sorry " + this.playerName + ", you rolled a 1! Your turn is over!")
+    this.tempscore = 0;
+    alert("Sorry " + this.playerName + ", you rolled a 1! Your turn is over!")
     } else {
         this.tempscore += this.roll;
     }
@@ -45,29 +45,30 @@ Player.prototype.newGame = function () {
 }
 
 var clearValues = function(){
-    $(".player1Name").val("");
+    $(".Player1Name").val("");
     $(".player2Name").val("");
 }
 
 
-$(document).ready(function(event) {
+$(document).ready(function() {
+
     $("button#start").click(function(event){
         Player1 = new Player(true);
         Player2 = new Player(false);
         $(".console").show();
         $(".start-menu").hide();
 
-        var player1Name = $(".player1Name").val();
-        $("#player1Name").text(player1Name);
+        var Player1Name = $(".Player1Name").val();
+        $("#Player1Name").text(Player1Name);
 
-        var player2Name = $(".player2Name").val();
-        $("#player2Name").text(player2Name);
+        var Player2Name = $(".Player2Name").val();
+        $("#Player2Name").text(Player2Name);
 
-        Player1.playerName=player1Name;
-        Player2.playerName=player2Name;
+        Player1.playerName=Player1Name;
+        Player2.playerName=Player2Name;
 
     });
-    $("button#dice").click(function(event) {
+    $("button#new").click(function(event) {
         $(".console").hide();
         clearValues();
         Player1.newGame();
@@ -83,7 +84,7 @@ $(document).ready(function(event) {
     });
 
     $("button#dice").click(function (event) {
-        Player2.roll = throwdice();
+        Player1.roll = throwdice();
         $("#die-roll-1").text(Player1.roll);
         Player1.rollone();
         $("#round-total-1").text(Player1.tempscore);
@@ -104,12 +105,12 @@ $(document).ready(function(event) {
         Player1.winnerCheck();
     });
 
-    $("button#dice4").click(function (event) {
-        Player1.hold();
-        $("#total-score-2").text(Player1.totalscore);
+    $("button#dice4").click(function(event) {
+        Player2.hold();
+        $("#total-score-2").text(Player2.totalscore);
         $("#round-total-2").empty();
         $("#die-roll-2").empty();
         Player2.winnerCheck();
     });
-       
+
 });
