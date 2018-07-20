@@ -1,3 +1,6 @@
+.container {
+    display: none;
+}
 .head1 {
     text-align: center;
 }
