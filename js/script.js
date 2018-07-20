@@ -8,9 +8,37 @@ $(document).ready(function(event) {
         $("#round-score-2").empty();
         $("#die-roll-2").empty();
     })
+
     event.preventDefault;
 });
 
 
 var Player1 = "";
 var Player2 = "";
+
+var throwdice = function () {
+    return Math.floor(6*Math.random())+1
+}
+
+function Player(turn) {
+    this.roll = 0;
+    this.tempscore = 0;
+    this.roundscore = 0;
+    this.turn = turn;
+    this.playerName
+}
+
+Player.prototype.rollone = function() {
+    if (this.roll === 1 ) {
+        this.tempscore = 0;
+        alert("Sorry " + this.playerName + ", you rolled a 1! Your turn is over!")
+    } else {
+        this.tempscore += this.roll;
+    }
+}
+
+Player.prototype.hold = function () {
+    this.roundscore += this.tempscore;
+    this.tempscore = 0;
+    alert(this.playerName + ", your turn is over. Next please.")
+}
