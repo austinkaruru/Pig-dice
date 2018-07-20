@@ -51,6 +51,23 @@ var clearValues = function(){
 
 
 $(document).ready(function (event) {
+
+    $("button#start").click(function(event){
+        Player1 = new Player(true);
+        Player2 = new Player(false);
+        $(".console").show();
+        $(".start-menu").hide();
+
+        var player1Name = $(".player1Name").val();
+        $("#player1Name").text(player1Name);
+
+        var player2Name = $(".player2Name");
+        $("#player2Name").text(player2Name);
+
+        Player1.playerName=player1Name;
+        Player2.playerName=player2Name;
+
+    });
     $("button#dice").click(function (event) {
         clearValues();
         Player1.newGame();
