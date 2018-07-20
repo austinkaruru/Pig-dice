@@ -7,6 +7,9 @@ $(document).ready(function(event) {
         $("#die-roll-1").empty();
         $("#round-score-2").empty();
         $("#die-roll-2").empty();
+    });
+    $("button#dice1").click(function(event) {
+        dice1 = throwdice();
     })
 
     event.preventDefault;
@@ -41,4 +44,25 @@ Player.prototype.hold = function () {
     this.roundscore += this.tempscore;
     this.tempscore = 0;
     alert(this.playerName + ", your turn is over. Next please.")
+}
+
+
+
+
+Player.prototype.winnerCheck = function () {
+    if (this.roundscore >= 100) {
+        alert(this.playerName + "You are the winner!!!!");
+    }
+}
+
+Player.prototype.newGame = function () {
+    this.roll = 0;
+    this.tempscore = 0;
+    this.roundscore = 0;
+    this.playerName ="";
+}
+
+var clearValues = function(){
+    $(".player1Name").val("");
+    $(".player2Name").val("");
 }
