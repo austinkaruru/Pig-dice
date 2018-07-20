@@ -2,10 +2,15 @@
     text-align: center;
 }
 body {
-    color: red;
+    color: white;
     background-color: black
+    
 }
 .jumbotron {
     background-color: red;
     color: black
+}
+.dice {
+    color: white;
+    background-color: black
 }
