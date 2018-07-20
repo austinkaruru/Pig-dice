@@ -1,21 +1,3 @@
-$(document).ready(function(event) {
-    $("button#dice").click(function(event) {
-        clearValues();
-        Player1.newGame();
-        Player2.newGame();
-        $("#round-score-1").empty();
-        $("#die-roll-1").empty();
-        $("#round-score-2").empty();
-        $("#die-roll-2").empty();
-    });
-    $("button#dice1").click(function(event) {
-        dice1 = throwdice();
-    })
-
-    event.preventDefault;
-});
-
-
 var Player1 = "";
 var Player2 = "";
 
@@ -66,3 +48,49 @@ var clearValues = function(){
     $(".player1Name").val("");
     $(".player2Name").val("");
 }
+
+
+$(document).ready(function (event) {
+    $("button#dice").click(function (event) {
+        clearValues();
+        Player1.newGame();
+        Player2.newGame();
+        $("#round-total-1").empty();
+        $("#total-score-1").empty();
+        $("#die-roll-1").empty();
+        $("#round-total-2").empty();
+        $("#total-score-2").empty();
+        $("#die-roll-2").empty();
+    });
+    $("button#dice1").click(function (event) {
+        dice1 = throwdice();
+        $("#die-roll-1").text(Player1.roll);
+        Player1.rollone();
+        $("#round-total-1").text(Player1.tempscore);
+    });
+
+    $("button#dice3").click(function (event) {
+        Player2.roll = throwdice();
+        $("#die-roll-2").text(Player2.roll);
+        Player2.rollone();
+        $("#round-total-2").text(Player2.tempscore);
+    });
+
+    $("button#dice2").click(function (event) {
+        Player1.hold();
+        $("#total-score-1").text(Player1.totalscore);
+        $("#round-total-1").empty();
+        $("#die-roll-1").empty();
+        Player1.winnerCheck();
+    });
+
+    $("button#dice4").click(function (event) {
+        Player1.hold();
+        $("#total-score-2").text(Player1.totalscore);
+        $("#round-total-2").empty();
+        $("#die-roll-2").empty();
+        Player1.winnerCheck();
+    });
+
+    event.preventDefault;
+});
