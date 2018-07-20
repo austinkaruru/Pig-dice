@@ -23,7 +23,7 @@ Player.prototype.rollone = function() {
 }
 
 Player.prototype.hold = function () {
-    this.roundscore += this.tempscore;
+    this.totalscore += this.tempscore;
     this.tempscore = 0;
     alert(this.playerName + ", your turn is over. Next please.")
 }
@@ -32,7 +32,7 @@ Player.prototype.hold = function () {
 
 
 Player.prototype.winnerCheck = function () {
-    if (this.roundscore >= 100) {
+    if (this.totalscore >= 100) {
         alert(this.playerName + "You are the winner!!!!");
     }
 }
@@ -40,7 +40,7 @@ Player.prototype.winnerCheck = function () {
 Player.prototype.newGame = function () {
     this.roll = 0;
     this.tempscore = 0;
-    this.roundscore = 0;
+    this.totalscore = 0;
     this.playerName ="";
 }
 
