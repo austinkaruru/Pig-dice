@@ -8,7 +8,7 @@ var throwdice = function () {
 function Player(turn) {
     this.roll = 0;
     this.tempscore = 0;
-    this.roundscore = 0;
+    this.totalscore = 0;
     this.turn = turn;
     this.playerName;
 }
@@ -33,7 +33,7 @@ Player.prototype.hold = function () {
 
 Player.prototype.winnerCheck = function () {
     if (this.totalscore >= 100) {
-        alert(this.playerName + "You are the winner!!!!");
+        alert(this.playerName + ", you are the winner!!!!");
     }
 }
 
@@ -46,7 +46,7 @@ Player.prototype.newGame = function () {
 
 var clearValues = function(){
     $(".Player1Name").val("");
-    $(".player2Name").val("");
+    $(".Player2Name").val("");
 }
 
 
@@ -83,21 +83,21 @@ $(document).ready(function() {
         $(".start-menu").show();
     });
 
-    $("button#dice").click(function (event) {
+    $("button#dice").click(function(event){
         Player1.roll = throwdice();
         $("#die-roll-1").text(Player1.roll);
         Player1.rollone();
         $("#round-total-1").text(Player1.tempscore);
     });
 
-    $("button#dice3").click(function (event) {
+    $("button#dice3").click(function(event){
         Player2.roll = throwdice();
         $("#die-roll-2").text(Player2.roll);
         Player2.rollone();
         $("#round-total-2").text(Player2.tempscore);
     });
 
-    $("button#dice2").click(function (event) {
+    $("button#dice2").click(function (event){
         Player1.hold();
         $("#total-score-1").text(Player1.totalscore);
         $("#round-total-1").empty();
